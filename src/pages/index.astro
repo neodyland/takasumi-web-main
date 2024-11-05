@@ -1,6 +1,67 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets"
+import TakasumiCircle from "../assets/takasumi.png"
+
+import { FaDatabase, FaUser } from "react-icons/fa";
+import { RiSlashCommands2 } from "react-icons/ri";
+
+import { Button } from "../components/react/shadcn/ui/button";
+import { NumberTicker } from "../components/react/magicui/NumberTicker";
+import { Card, CardContent } from "../components/react/shadcn/ui/card";
 ---
 
 <Layout title="TakasumiBOT Home">
+    <div class="flex flex-col items-center justify-center h-screen">
+        <div class="flex flex-col items-center">
+            <Image src={TakasumiCircle} alt="TakasumiBOT" class="w-32 h-32" />
+            <h1 class="text-4xl font-bold mt-4">TakasumiBOT</h1>
+            <p class="text-lg mt-2">技術を形に もっと便利を</p>
+            <div class="mt-4">
+                <Button className="bg-[#03d0ff] w-48">導入する</Button>
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col items-center justify-center h-screen">
+        <h1 class="text-black text-4xl font-bold mt-4">概要</h1>
+        <Card className="w-full max-w-4xl mt-4">
+            <CardContent className="flex items-center justify-center h-full py-4">
+                <div class="flex flex-row items-center justify-center">
+                    <FaDatabase className="text-5xl text-blue-500 mr-4" />
+                    <NumberTicker value={6000} className="text-4xl font-bold text-black" client:load/>
+                    <h3 class="text-2xl font-bold ml-4">以上のサーバー</h3>
+                </div>
+            </CardContent>
+        </Card>
+        <Card className="w-full max-w-4xl mt-4">
+            <CardContent className="flex items-center justify-center h-full py-4">
+                <div class="flex flex-row items-center justify-center">
+                    <FaUser className="text-5xl text-blue-500 mr-4" />
+                    <NumberTicker value={60000} className="text-4xl font-bold text-black" client:load/>
+                    <h3 class="text-2xl font-bold ml-4">以上のユーザー</h3>
+                </div>
+            </CardContent>
+        </Card>
+        <Card className="w-full max-w-4xl mt-4">
+            <CardContent className="flex items-center justify-center h-full py-4">
+                <div class="flex flex-row items-center justify-center">
+                    <RiSlashCommands2 className="text-5xl text-blue-500 mr-4" />
+                    <NumberTicker value={90} className="text-4xl font-bold text-black" client:load/>
+                    <h3 class="text-2xl font-bold ml-4">以上の便利なコマンド</h3>
+                </div>
+            </CardContent>
+        </Card>
+        <h1 class="text-black text-4xl font-bold mt-16">ガイド</h1>
+        <div class="flex flex-row space-x-5 mt-4">
+            <a href="/commands">
+                <Button className="bg-[#03d0ff] w-48 h-12">コマンド一覧</Button>
+            </a>
+            <a href="/features">
+                <Button className="bg-[#03d0ff] w-48 h-12">機能一覧</Button>
+            </a>
+            <a href="/support">
+                <Button className="bg-[#03d0ff] w-48 h-12">サポート</Button>
+            </a>
+        </div>
+    </div>
 </Layout>
